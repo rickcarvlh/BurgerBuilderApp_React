@@ -1,2 +1,2 @@
 # BurgerBuilderApp_React
-React App for practice reasons
+React App for a personal project
