@@ -4,14 +4,15 @@ import styled from 'styled-components'
 import Person from './Person/Person';
 
 const StyledButton = styled.button`
-    background-color: ${props => props.alt ? 'red' : 'green'};
+    background-color: ${props => props.myAlt ? 'red' : 'green'};
     color: white;
     font: inherit;
     border: 1px solid blue;
     padding: 8px;
     cursor: pointer;
+    
     &:hover: {
-    background-color: lightgreen;
+    background-color: ${props => props.myalt ? 'salmon' : 'lightgreen'};
     color: black;
   }
   `;
