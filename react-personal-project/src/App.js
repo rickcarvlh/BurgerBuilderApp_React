@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
+import styled from 'styled-components';
 
 import Person from './Person/Person';
 
-/*
+
 const StyledButton = styled.button`
     background-color: ${props => props.myAlt ? 'red' : 'green'};
     color: white;
@@ -17,7 +18,7 @@ const StyledButton = styled.button`
     color: black;
   }
   `;
-*/
+
 
 class App extends Component {
 
