@@ -10,8 +10,8 @@ const StyledButton = styled.button`
     border: 1px solid blue;
     padding: 8px;
     cursor: pointer;
-    
-    &:hover: {
+
+    &:hover {
     background-color: ${props => props.myalt ? 'salmon' : 'lightgreen'};
     color: black;
   }
