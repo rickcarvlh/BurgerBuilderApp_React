@@ -8,6 +8,11 @@ import Cockpit from '../components/Cockpit/Cockpit'
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log('[App.js] constructor');
+  }
+
 
   state = {
     persons: [
@@ -19,6 +24,12 @@ class App extends Component {
     showPerson: false,
   }
 
+  // run after the constructor
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;
+  }
+
   deletePersonHandler = (personIndex) => {
     // delete person from array of persons
     //  * slice -> without arguments copys the entire array
@@ -26,6 +37,11 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1)
     this.setState({ persons: persons });
+  }
+
+  componentDidMount(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;
   }
 
   nameChangeHandler = (event, id) => {
@@ -51,8 +67,9 @@ class App extends Component {
     this.setState({ showPerson: !doesShow });
   }
 
+  // after getDerivedStateFromProps
   render() {
-    // js object
+    console.log('[App.js] render()');
     let persons = null;
     if (this.state.showPerson) {
       persons = <Persons
@@ -61,6 +78,8 @@ class App extends Component {
         changed={this.nameChangeHandler} />
       // style.backgroundColor = 'red';
     }
+
+
     return (
       <div className="App">
         <Cockpit
