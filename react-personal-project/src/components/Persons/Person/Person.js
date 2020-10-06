@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
+import classes from './Person.module.css'
 // import './Person.css';
 
+/*
 const StyleDiv = styled.div`
             width: 60%;
             margin: 16px auto;
@@ -15,28 +17,25 @@ const StyleDiv = styled.div`
             
         }
         `;
+*/
 
 class Person extends Component {
-    /*const style = {
-        '@media (minWidth: 500px)': {
-            width: '450px'
-        }
-    }*/
     render() {
         console.log('[Person.js] rendering...');
         return (
-            // <div className="Person" style={style}>
-            <StyleDiv>
-                <p onClick={this.props.click} > I'm {this.props.name} and I am {this.props.age} years old.</p>
-                < p > {this.props.children}</p >
-                <input type="text" onChange={this.props.changed} value={this.props.name} />
-            </StyleDiv >
-        )
+            <div className={classes.Person}>
+                <p onClick={this.props.click}>
+                    I'm {this.props.name} and I am {this.props.age} years old!
+        </p>
+                <p>{this.props.children}</p>
+                <input
+                    type="text"
+                    onChange={this.props.changed}
+                    value={this.props.name}
+                />
+            </div>
+        );
     }
-
-
-
-
 }
 
 export default Person;

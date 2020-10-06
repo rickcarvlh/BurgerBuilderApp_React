@@ -5,9 +5,9 @@ import Cockpit from '../components/Cockpit/Cockpit'
 // import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 
-
-
 class App extends Component {
+
+
   constructor(props) {
     super(props);
     console.log('[App.js] constructor');
@@ -39,9 +39,9 @@ class App extends Component {
     this.setState({ persons: persons });
   }
 
-  componentDidMount(props, state) {
-    console.log('[App.js] getDerivedStateFromProps', props);
-    return state;
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
+
   }
 
   nameChangeHandler = (event, id) => {
@@ -54,7 +54,10 @@ class App extends Component {
       ...this.state.persons[personIndex]
     };
 
-    person.name = event.target.name;
+    // ! gets the input from the user
+    person.name = event.target.value;
+
+
     const persons = [...this.state.persons]
     // updated person
     persons[personIndex] = person;
@@ -72,10 +75,11 @@ class App extends Component {
     console.log('[App.js] render()');
     let persons = null;
     if (this.state.showPerson) {
-      persons = <Persons
+      persons = (<Persons
         persons={this.state.persons}
         clicked={this.deletePersonHandler}
         changed={this.nameChangeHandler} />
+      )
       // style.backgroundColor = 'red';
     }
 
