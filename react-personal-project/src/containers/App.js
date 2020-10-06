@@ -44,6 +44,7 @@ class App extends Component {
 
   }
 
+  // * funcção que recebe o input do user
   nameChangeHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
