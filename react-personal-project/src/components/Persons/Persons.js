@@ -27,6 +27,7 @@ class Persons extends Component {
     //     console.log('[Person.js] componentDidUpdate,,');
     // }
 
+    // * most used hook
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('[Person.js] componentDidUpdate');
         console.log(snapshot);

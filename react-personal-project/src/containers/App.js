@@ -39,30 +39,40 @@ class App extends Component {
     this.setState({ persons: persons });
   }
 
+  // -> good place to load data from a remote endpoint
+  // -> instatiate a network request
   componentDidMount() {
     console.log('[App.js] componentDidMount');
 
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[App.js] shouldComponentUpdate..');
+    return true;
+  }
+
+  // invocado imediatamente apos o update
+  // -> good place to do network requests
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('[App.js] componentDidUpdate..');
+  }
+
   // * funcção que recebe o input do user
-  nameChangeHandler = (event, id) => {
+  inputEventHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
     })
-
     // working on the copy of the array
     const person = {
       ...this.state.persons[personIndex]
     };
 
-    // ! gets the input from the user
+    // ! puts the value on the array
     person.name = event.target.value;
-
 
     const persons = [...this.state.persons]
     // updated person
     persons[personIndex] = person;
-
     this.setState({ persons: persons });
   }
 
@@ -79,7 +89,7 @@ class App extends Component {
       persons = (<Persons
         persons={this.state.persons}
         clicked={this.deletePersonHandler}
-        changed={this.nameChangeHandler} />
+        changed={this.inputEventHandler} />
       )
       // style.backgroundColor = 'red';
     }
