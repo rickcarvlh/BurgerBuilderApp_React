@@ -33,6 +33,11 @@ class Persons extends Component {
         console.log(snapshot);
     }
 
+    // code before component is removed
+    componentWillUnmount() {
+        console.log('[Persons.js] componentWillUnmount');
+    }
+
 
     render() {
         console.log('[Persons.js] rendering...');

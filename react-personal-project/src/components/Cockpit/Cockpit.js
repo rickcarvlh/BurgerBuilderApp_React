@@ -26,6 +26,9 @@ const Cockpit = (props) => {
         setTimeout(() => {
             alert('save data to cloud')
         }, 1000);
+        return () => {
+            console.log('[Cockpit.js] clean up work in useEffect');
+        }
     }, [])
 
     // [props.persons]

@@ -22,6 +22,7 @@ class App extends Component {
     ],
     otherStates: ' some other value',
     showPerson: false,
+    showCockpit: true,
   }
 
   // run after the constructor
@@ -94,15 +95,16 @@ class App extends Component {
       // style.backgroundColor = 'red';
     }
 
-
+    // -> the onlick method is the wrong way to do it
     return (
       <div className="App">
-        <Cockpit
+        <button onClick={() => { this.setState({ showCockpit: false }) }}>Remove Cockpit</button>
+        {this.state.showCockpit ? <Cockpit
           title={this.props.appTitle}
           showPerson={this.state.showPerson}
           persons={this.state.persons}
           clicked={this.togglePersonsHandler}
-        />
+        /> : null}
         {persons}
       </div>
     );
