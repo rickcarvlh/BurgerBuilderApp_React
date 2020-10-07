@@ -1,21 +1,26 @@
 import React, { useEffect } from 'react';
-// import styled from 'styled-components';
 import classes from './Cockpit.module.css'
 
 /*
-const StyledButton = styled.button`
-    background-color: ${props => props.myAlt ? 'red' : 'green'};
-    color: white;
-    font: inherit;
-    border: 1px solid blue;
-    padding: 8px;
-    cursor: pointer;
+   useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+        // Http requests ....
+        const timer = setTimeout(() => {
+            alert('save data to cloud')
+        }, 1000);
+        return () => {
+            clearTimeout(timer);
+            console.log('[Cockpit.js] clean up work in useEffect');
+        }
+    }, [])
 
-    &:hover {
-    background-color: ${props => props.myalt ? 'salmon' : 'lightgreen'};
-    color: black;
-  }
-  `;
+    useEffect(() => {
+        console.log('[Cockpit.js] 2nd useEffect');
+        return () => {
+            console.log('[Cockpit.js] clean up work in 2nd useEffect');
+        }
+    })
+
 */
 
 const Cockpit = (props) => {
@@ -30,6 +35,13 @@ const Cockpit = (props) => {
             console.log('[Cockpit.js] clean up work in useEffect');
         }
     }, [])
+
+    useEffect(() => {
+        console.log('[Cockpit.js] 2nd useEffect');
+        return () => {
+            console.log('[Cockpit.js] clean up work in 2nd useEffect');
+        }
+    })
 
     // [props.persons]
 
