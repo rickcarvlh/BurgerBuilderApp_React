@@ -1,9 +1,10 @@
 // fucntional component -> presentation of content
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Person from './Person/Person'
 
 // i'm mapping the array of users that commes from the state on App.js
-class Persons extends Component {
+// * PureComponent makes a complete props verification -> check documentation maybe
+class Persons extends PureComponent {
     /*
     static getDerivedStateFromProps(props,state) {
         console.log('[Person.js] getDerivedStateFromProps...');
@@ -11,7 +12,7 @@ class Persons extends Component {
     }*/
 
 
-
+    /*
     shouldComponentUpdate(nextProps, nextState) {
         // isto não é assim que se faz
         console.log('[Persons.js], shouldComponentUpdate..');
@@ -21,7 +22,7 @@ class Persons extends Component {
             return false;
         }
 
-    }
+    }*/
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('[Person.js] getSnapshotBeforeUpdate...');
