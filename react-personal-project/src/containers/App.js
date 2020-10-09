@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import classes from './App.module.css'
 import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit'
-import WithClass from '../hoc/WithClass';
+// import WithClass from '../hoc/WithClass';
+import withClass from '../hoc/WithClass';
 // import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 
@@ -98,7 +99,7 @@ class App extends Component {
 
     // -> the onlick method is the wrong way to do it
     return (
-      <WithClass classes={classes.App}>
+      <Fragment>
         <button onClick={() => { this.setState({ showCockpit: false }) }}>Remove Cockpit</button>
         {this.state.showCockpit ? (
           <Cockpit
@@ -109,7 +110,7 @@ class App extends Component {
           />
         ) : null}
         {persons}
-      </WithClass>
+      </Fragment>
     );
     // return React.createElement('div', { className: 'App' },
     //   React.createElement('h1', null, 'Hi I\'m a React App!!!'))
@@ -117,5 +118,5 @@ class App extends Component {
 }
 
 
-export default App;
+export default withClass(App, classes.App);
 
